@@ -4,6 +4,9 @@
     <h1 class="text-center py-3">
         My Projects
     </h1>
+    <a class="btn btn-primary my-2" href="{{ route('admin.projects.create') }}" role="button">Add new Project</a>
+
+    @include('partials.session_message')
 
     <div class="table-responsive">
         <table class="table table-striped
