@@ -25,7 +25,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow py-3">
-            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">BoolPress</a>
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Laravel Auth</a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
                 data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Route::currentRouteName() == 'admin.dashboard' ? 'bg-primary text-white rounded-pill' : '' }}"
                                     aria-current="page" href="{{ route('admin.dashboard') }}">
-                                    <i class="fa-solid fa-gauge"></i>
+                                    <i class="fa-solid fa-home pe-2"></i>
                                     {{ __('Dashboard') }}
                                 </a>
                             </li>
