@@ -39,12 +39,18 @@
                         <td>
 
                             <div class="d-flex gap-2">
-                                <button class="btn text-white btn-outline-success">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
+                                <button class="btn btn-outline-success">
+                                    <a class="text-white" href="{{ route('admin.projects.show', $proj->id) }}"
+                                        title="Show">
+                                        <i class="fa fa-eye" aria-hidden="true"></i>
+                                    </a>
                                 </button>
 
                                 <button class="btn text-white btn-outline-warning">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    <a class="text-white" href="{{ route('admin.projects.edit', $proj->id) }}"
+                                        title="Edit">
+                                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                                    </a>
                                 </button>
 
                                 <button class="btn text-white btn-outline-danger">
