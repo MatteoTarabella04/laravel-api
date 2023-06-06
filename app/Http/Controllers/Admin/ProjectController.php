@@ -49,11 +49,20 @@ class ProjectController extends Controller
 
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $val_data = $request->validated();
+
+        $slug = Project::generateSlug($val_data['name']);
+
+        $val_data['slug'] = $slug;
+
+        $project->update($val_data);
+
+        return to_route('admin.projects.index')->with('message', 'Project Updated Succesfully');
     }
 
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return to_route('admin.projects.index')->with('message', 'Project Deleted!');
     }
 }
