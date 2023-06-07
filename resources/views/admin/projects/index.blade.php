@@ -19,7 +19,8 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Description</th>
+                    <th>GitHub</th>
+                    <th>Page Link</th>
                     <th>Started</th>
                     <th>Finished</th>
                     <th>Actions</th>
@@ -33,7 +34,8 @@
                     <tr class="table-dark">
                         <td scope="row">{{ $proj->id }}</td>
                         <td>{{ $proj->name }}</td>
-                        <td>{{ $proj->description }}</td>
+                        <td>{{ $proj->git_hub_link }}</td>
+                        <td>{{ $proj->page_link }}</td>
                         <td>{{ $proj->start_date }}</td>
                         <td>{{ $proj->finish_date }}</td>
                         <td>

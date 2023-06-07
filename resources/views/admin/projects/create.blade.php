@@ -41,6 +41,20 @@
             <small id="finish_dateHelper" class="form-text text-muted">Insert finish date</small>
         </div>
 
+        <div class="mb-3">
+            <label for="git_hub_link" class="form-label">GitHub Link</label>
+            <input type="text" class="form-control @error('git_hub_link') is-invalid @enderror" name="git_hub_link"
+                id="git_hub_link" aria-describedby="git_hub_linkHelper" placeholder="Project GitHub link">
+            <small id="git_hub_linkHelper" class="form-text text-muted">Type GitHub link</small>
+        </div>
+
+        <div class="mb-3">
+            <label for="page_link" class="form-label">Page Link</label>
+            <input type="text" class="form-control @error('page_link') is-invalid @enderror" name="page_link"
+                id="page_link" aria-describedby="page_linkHelper" placeholder="Project Page link">
+            <small id="page_linkHelper" class="form-text text-muted">Type Page link</small>
+        </div>
+
 
         <button type="submit" class="btn btn-primary">Add</button>
 

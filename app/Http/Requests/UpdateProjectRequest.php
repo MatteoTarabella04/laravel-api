@@ -30,6 +30,8 @@ class UpdateProjectRequest extends FormRequest
             'description' => ['nullable'],
             'start_date' => ['nullable', 'date'],
             'finish_date' => ['nullable', 'date'],
+            'git_hub_link' => ['nullable', 'url'],
+            'page_link' => ['nullable', 'url'],
         ];
     }
 }

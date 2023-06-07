@@ -19,6 +19,8 @@ return new class extends Migration {
             $table->text('description');
             $table->date('start_date')->nullable();
             $table->date('finish_date')->nullable();
+            $table->string('git_hub_link')->nullable();
+            $table->string('page_link')->nullable();
             $table->timestamps();
         });
     }
