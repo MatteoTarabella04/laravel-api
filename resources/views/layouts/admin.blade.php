@@ -62,8 +62,15 @@
                             <li class="nav-item">
                                 <a class="nav-link {{ Route::currentRouteName() == 'admin.projects.index' ? 'bg-primary text-white rounded-pill' : '' }}"
                                     href="{{ route('admin.projects.index') }}">
-                                    <i class="fa-solid fa-project-diagram pe-2"></i>
+                                    <i class="fa-solid fa-microchip pe-2"></i>
                                     {{ __('Projects') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-primary text-white rounded-pill' : '' }}"
+                                    href="{{ route('admin.types.index') }}">
+                                    <i class="fa-solid fa-sitemap pe-2"></i>
+                                    {{ __('Types') }}
                                 </a>
                             </li>
                         </ul>
