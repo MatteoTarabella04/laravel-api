@@ -11,7 +11,9 @@ class TypeController extends Controller
 {
     public function index()
     {
-        //
+        $types = Type::orderByDesc('id')->get();
+
+        return view('admin.types.index', compact('types'));
     }
 
     public function create()
