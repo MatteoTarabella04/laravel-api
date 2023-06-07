@@ -44,7 +44,7 @@
                                 <td>{{ $type->name }}</td>
                                 <td>{{ $type->slug }}</td>
                                 <td>
-                                    <span class="badge bg-danger">{{ $type->posts->count() }}</span>
+                                    <span class="badge bg-danger">{{ $type->projects->count() }}</span>
 
                                 </td>
                                 <td>
