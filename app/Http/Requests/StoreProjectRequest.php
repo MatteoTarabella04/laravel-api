@@ -27,6 +27,7 @@ class StoreProjectRequest extends FormRequest
         return [
             'name' => ['required', Rule::unique('projects', 'name')->ignore($this->project), 'max:150'],
             'description' => ['nullable'],
+            'type' => ['exist:types,id'],
             'start_date' => ['nullable', 'date'],
             'finish_date' => ['nullable', 'date'],
             'git_hub_link' => ['nullable', 'url'],
