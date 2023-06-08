@@ -27,7 +27,7 @@
             <small id="descriptionHelper" class="form-text text-muted">Type description</small>
         </div>
 
-        <div class="mb-3">
+        <div class="mb-4">
             <label for="type_id" class="form-label">Type</label>
             <select class="form-select @error('type_id') is-invalid @enderror" name="type_id" id="type_id">
                 <option selected value=""> |-Select Type-| </option>
@@ -39,6 +39,24 @@
                 @endforeach
 
             </select>
+        </div>
+
+        <div class="form-group mb-3 d-flex gap-3 align-items-center">
+            <label for="technologies" class="m-0">Used Technologies:</label>
+            @foreach ($technologies as $tech)
+                <div class="form-check @error('technologies') is-invalid @enderror">
+
+                    <label class="form-check-label">
+                        <input name="technologies[]" type="checkbox" value="{{ $tech->id }}" class="form-check-input"
+                            {{ in_array($tech->id, old('technologies', [])) ? 'checked' : '' }}>
+                        {{ $tech->name }}
+                    </label>
+                </div>
+            @endforeach
+
+            @error('technologies')
+                <div class="invalid-feedback">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="mb-3">
