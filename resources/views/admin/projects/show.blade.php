@@ -3,10 +3,13 @@
 @section('content')
     <div class="container p-4">
         <div class="card m-auto w-75">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between align-items-center">
                 <h2>
                     {{ $project->name }}
                 </h2>
+                <div class="tag">
+                    <span class="badge bg-success">{{ $project->type?->name }}</span>
+                </div>
             </div>
             <div class="card-body">
                 <p>
