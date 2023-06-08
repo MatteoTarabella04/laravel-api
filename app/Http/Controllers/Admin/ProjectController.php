@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,9 @@ class ProjectController extends Controller
     public function create()
     {
         $types = Type::orderByDesc('id')->get();
+        $technologies = Technology::orderByDesc('id')->get();
 
-        return view('admin.projects.create', compact('types'));
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     public function store(StoreProjectRequest $request)
@@ -35,7 +37,12 @@ class ProjectController extends Controller
 
         $val_data['slug'] = $slug;
 
-        Project::create($val_data);
+        $newProject = Project::create($val_data);
+
+        if ($request->has('technologies')) {
+
+            $newProject->technologies()->attach($request->technologies);
+        }
 
         return to_route('admin.projects.index')->with('message', 'Project Created');
     }
@@ -48,8 +55,9 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::orderByDesc('id')->get();
+        $technologies = Technology::orderByDesc('id')->get();
 
-        return view('admin.projects.edit', compact('project', 'types'));
+        return view('admin.projects.edit', compact('project', 'types', 'technologies'));
     }
 
     public function update(UpdateProjectRequest $request, Project $project)
@@ -61,6 +69,12 @@ class ProjectController extends Controller
         $val_data['slug'] = $slug;
 
         $project->update($val_data);
+
+        if ($request->has('technologies')) {
+
+            $project->technologies()->sync($request->technologies);
+        }
+
 
         return to_route('admin.projects.index')->with('message', 'Project Updated Succesfully');
     }
