@@ -30,6 +30,12 @@
                     <a href="{{ $project->page_link }}">{{ $project->page_link }}</a>
                 </p>
             </div>
+            <div class="card-footer d-flex align-items-center gap-3">
+                <b>Technologies: </b>
+                @foreach ($project->technologies as $tech)
+                    <span class="badge bg-primary">{{ $tech['name'] }}</span>
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection
