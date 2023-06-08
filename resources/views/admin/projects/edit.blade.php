@@ -34,7 +34,8 @@
                 <option selected value=""> |-Select Type-| </option>
 
                 @foreach ($types as $type)
-                    <option value="{{ $type->id }}" {{ $type->id == old('type_id', '') ? 'selected' : '' }}>
+                    <option value="{{ $type->id }}"
+                        {{ $type->id == old('type_id', $project->type?->id) ? 'selected' : '' }}>
                         {{ $type->name }}
                     </option>
                 @endforeach
@@ -51,6 +52,7 @@
                             <input name="technologies[]" type="checkbox" value="{{ $tech->id }}"
                                 class="form-check-input"
                                 {{ in_array($tech->id, old('technologies', [])) ? 'checked' : '' }}>
+                            {{ $tech->name }}
                         @else
                             <input name="technologies[]" type="checkbox" value="{{ $tech->id }}"
                                 class="form-check-input" {{ $project->technologies->contains($tech) ? 'checked' : '' }}>
