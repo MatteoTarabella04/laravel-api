@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\TechnologyController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ProjectController;
@@ -30,6 +31,10 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
 
     Route::resource('types', TypeController::class)->parameters([
         'types' => 'type:slug'
+    ]);
+
+    Route::resource('technologies', TechnologyController::class)->parameters([
+        "technologies" => "technology:slug"
     ]);
 });
 
