@@ -59,8 +59,8 @@
                                         <form action="{{ route('admin.types.destroy', $type) }}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">
-                                                <i class="fas fa-trash"></i>
+                                            <button type="submit" class="btn text-white btn-outline-danger">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
                                             </button>
                                         </form>
                                     </div>

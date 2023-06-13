@@ -38,23 +38,34 @@
                     </thead>
                     <tbody class="table-group-divider">
 
-                        @forelse ($technologies as $tech)
+                        @forelse ($technologies as $technology)
                             <tr class="table-dark">
-                                <td scope="row">{{ $tech->id }}</td>
-                                <td>{{ $tech->name }}</td>
-                                <td>{{ $tech->slug }}</td>
+                                <td scope="row">{{ $technology->id }}</td>
+                                <td>{{ $technology->name }}</td>
+                                <td>{{ $technology->slug }}</td>
                                 <td class="text-center">
-                                    <span class="badge bg-danger">{{ $tech->projects->count() }}</span>
+                                    <span class="badge bg-danger">{{ $technology->projects->count() }}</span>
 
                                 </td>
                                 <td>
-                                    <form action="{{ route('admin.technologies.destroy', $tech) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fas fa-trash"></i>
+                                    <div class="d-flex  gap-3">
+                                        <button class="btn text-white btn-outline-warning">
+                                            <a class="text-white"
+                                                href="{{ route('admin.technologies.edit', $technology->slug) }}"
+                                                title="Edit">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
                                         </button>
-                                    </form>
+
+                                        <form action="{{ route('admin.technologies.destroy', $technology) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn text-white btn-outline-danger">
+                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @empty
