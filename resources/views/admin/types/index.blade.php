@@ -48,13 +48,22 @@
 
                                 </td>
                                 <td>
-                                    <form action="{{ route('admin.types.destroy', $type) }}" method="post">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fas fa-trash"></i>
+                                    <div class="d-flex  gap-3">
+                                        <button class="btn text-white btn-outline-warning">
+                                            <a class="text-white" href="{{ route('admin.types.edit', $type->slug) }}"
+                                                title="Edit">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            </a>
                                         </button>
-                                    </form>
+
+                                        <form action="{{ route('admin.types.destroy', $type) }}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @empty

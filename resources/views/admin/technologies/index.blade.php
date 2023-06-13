@@ -32,7 +32,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Name</th>
                             <th scope="col">Slug</th>
-                            <th scope="col">Technologies Count</th>
+                            <th class="text-center" scope="col">Technologies Count</th>
                             <th scope="col">Actions</th>
                         </tr>
                     </thead>
@@ -43,7 +43,7 @@
                                 <td scope="row">{{ $tech->id }}</td>
                                 <td>{{ $tech->name }}</td>
                                 <td>{{ $tech->slug }}</td>
-                                <td>
+                                <td class="text-center">
                                     <span class="badge bg-danger">{{ $tech->projects->count() }}</span>
 
                                 </td>

@@ -41,12 +41,20 @@ class TypeController extends Controller
 
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $val_data = $request->validated();
+
+        $slug = Str::slug($request->name);
+
+        $val_data['slug'] = $slug;
+
+        $type->update($val_data);
+
+        return to_route('admin.types.index')->with('message', 'Type Updated Succesfully');
     }
 
     public function destroy(Type $type)
